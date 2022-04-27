@@ -29,7 +29,6 @@ services:
       - "config-server:${CONFIG_IP}"
       - "discovery-server:${DISCOVERY_IP}"
 
-
   vets-service:
     image: springcommunity/spring-petclinic-vets-service
     container_name: vets-service
@@ -55,6 +54,34 @@ services:
       - "9910:9910"
       - "9911:9911"
 
+    extra_hosts:
+      - "config-server:${CONFIG_IP}"
+      - "discovery-server:${DISCOVERY_IP}"
+
+  visits-service:
+    image: springcommunity/spring-petclinic-visits-service
+    container_name: visits-service
+    hostname: visits-service
+    volumes:
+      - ${SCRIPTPATH}/easeagent:/easeagent-volume
+    entrypoint: 
+      - "./dockerize"
+      - "-wait=tcp://discovery-server:8761"
+      - "-timeout=60s"
+      - "--"
+      - "java"
+      - "$JAVA_AGENT_CONFIG"
+      - "-javaagent:${JMX_AGENT_FILE}=9921:${JMX_AGENT_CONFIG}"
+      - "-Deaseagent.config.path=/easeagent-volume/${EASEAGENT_CONFIG_FILE}"
+      - "-Deaseagent.name=visits-service"
+      - "-Deaseagent.server.port=9920"
+      - "-Dspring.sleuth_enabled=false"
+      - "-Dspring.sleuth.web.enabled=false"
+      - "org.springframework.boot.loader.JarLauncher"
+    ports:
+      - "8082:8082"
+      - "9920:9920"
+      - "9921:9921"
     extra_hosts:
       - "config-server:${CONFIG_IP}"
       - "discovery-server:${DISCOVERY_IP}"

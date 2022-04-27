@@ -31,8 +31,8 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="owner" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1345939901">
-            <stringProp name="1598">20</stringProp>
+          <collectionProp name="-1967014451">
+            <stringProp name="1660">40</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="1629">30</stringProp>
             <stringProp name="1509345">1200</stringProp>

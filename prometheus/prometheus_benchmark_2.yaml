@@ -9,11 +9,20 @@ scrape_configs:
       - targets: ["customers-service:9901"]
     metrics_path: "/metrics" 
 
-
   - job_name: "jmx-vets"
     static_configs:
       - targets: ["vets-service:9911"]
     metrics_path: "/metrics" 
+
+  - job_name: "jmx-api-gateway"
+    static_configs:
+      - targets: ["api-gateway:9911"]
+    metrics_path: "/metrics" 
+
+  - job_name: "jmx-visits"
+    static_configs:
+      - targets: ["visits-service:9921"]
+    metrics_path: "/metrics"
 
   # Telegraf
   - job_name: "node-gateway"
