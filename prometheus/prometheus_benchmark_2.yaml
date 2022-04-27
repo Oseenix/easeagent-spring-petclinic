@@ -15,6 +15,18 @@ scrape_configs:
       - targets: ["vets-service:9911"]
     metrics_path: "/metrics" 
 
+  # Telegraf
+  - job_name: "node-gateway"
+    static_configs:
+      - targets: ["node-gateway:9100"]
+    metrics_path: "/metrics"
+
+  - job_name: "node-service"
+    static_configs:
+      - targets: ["node-service:9100"]
+    metrics_path: "/metrics"
+
+
   # Jmeter
   - job_name: 'jmeter'
     static_configs:

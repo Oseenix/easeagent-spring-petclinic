@@ -25,6 +25,18 @@ scrape_configs:
       - targets: ["vets-service-baseline:9911"]
     metrics_path: "/metrics" 
 
+
+  # node
+  - job_name: "node-agent"
+    static_configs:
+      - targets: ["node-agent:9100"]
+    metrics_path: "/metrics"
+
+  - job_name: "node-baseline"
+    static_configs:
+      - targets: ["node-baseline:9100"]
+    metrics_path: "/metrics"
+
   # Jmeter
   - job_name: 'jmeter'
     static_configs:

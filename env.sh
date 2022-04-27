@@ -23,6 +23,9 @@ export GATEWAY_AGENT=${AGENT_IP}
 export VISITS_AGENT=${AGENT_IP}
 export VETS_AGENT=${AGENT_IP}
 
+export NODE_BASELINE=${BASELINE_IP}
+export NODE_AGENT=${AGENT_IP}
+
 ################################################
 ## test-case-2.
 ##
@@ -32,6 +35,9 @@ export VETS_AGENT=${AGENT_IP}
 ##
 export GATEWAY_IP=${A_IP}
 export SERVICE_IP=${B_IP}
+
+export NODE_GATEWAY=${GATEWAY_IP}
+export NODE_SERVICE=${SERVICE_IP}
 
 export DISCOVERY_IP=${GATEWAY_IP}
 export CONFIG_IP=${GATEWAY_IP}

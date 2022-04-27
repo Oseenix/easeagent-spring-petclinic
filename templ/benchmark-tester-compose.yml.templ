@@ -29,7 +29,10 @@ services:
       - "customers-service:${CUSTOMERS_IP}"
       - "vets-service:${VETS_IP}"
       - "api-gateway:${GATEWAY_IP}"
-
+      - "node-baseline:${NODE_BASELINE}"
+      - "node-agent:${NODE_AGENT}"
+      - "node-gateway:${NODE_GATEWAY}"
+      - "node-service:${NODE_SERVICE}"
     ports:
       - "9090:9090"
 
