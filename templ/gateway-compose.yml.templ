@@ -10,6 +10,8 @@ services:
       - GIT_REPO=/git-repo
       - SPRING_PROFILES_ACTIVE=native
     mem_limit: 512M
+    ports:
+      - "8888:8888"
 
   discovery-server:
     image: springcommunity/spring-petclinic-discovery-server
@@ -18,6 +20,8 @@ services:
     depends_on:
       - config-server
     entrypoint: ["./dockerize","-wait=tcp://config-server:8888","-timeout=60s","--","java", "org.springframework.boot.loader.JarLauncher"]
+    ports:
+      - "8761:8761"
 
 
   visits-service:
