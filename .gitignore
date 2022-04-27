@@ -32,6 +32,6 @@ easeagent.jar
 *.pdf
 easeagent/downloaded
 
-promethues/data
+prometheus/data
 easeagent/agent_megacloud.properties
 node_exporter-1.3.1.linux-amd64*
