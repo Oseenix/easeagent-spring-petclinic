@@ -23,11 +23,11 @@ services:
       - "org.springframework.boot.loader.JarLauncher"
     ports:
       - "8081:8081"
-      - "9901:9901"
       - "9900:9900"
+      - "9901:9901"
     extra_hosts:
-      - "config-server:172.20.2.115"
-      - "discovery-server:172.20.2.115"
+      - "config-server:${CONFIG_IP}"
+      - "discovery-server:${DISCOVERY_IP}"
 
 
   vets-service:
@@ -43,19 +43,19 @@ services:
       - "--"
       - "java"
       - "$JAVA_AGENT_CONFIG"
-      - "-javaagent:${JMX_AGENT_FILE}=9901:${JMX_AGENT_CONFIG}"
+      - "-javaagent:${JMX_AGENT_FILE}=9911:${JMX_AGENT_CONFIG}"
       - "-Deaseagent.config.path=/easeagent-volume/agent_benchmark.properties"
       - "-Deaseagent.name=vets-service"
-      - "-Deaseagent.server.port=9900"
+      - "-Deaseagent.server.port=9910"
       - "-Dspring.sleuth_enabled=false"
       - "-Dspring.sleuth.web.enabled=false"
       - "org.springframework.boot.loader.JarLauncher"
     ports:
       - "8083:8083"
-      - "9901:9901"
-      - "9900:9900"
+      - "9910:9910"
+      - "9911:9911"
 
     extra_hosts:
-      - "config-server:172.20.2.115"
-      - "discovery-server:172.20.2.115"
+      - "config-server:${CONFIG_IP}"
+      - "discovery-server:${DISCOVERY_IP}"
 

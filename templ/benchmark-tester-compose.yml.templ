@@ -19,13 +19,17 @@ services:
     volumes:
       - ${SCRIPTPATH}/prometheus/${PROMETHEUS_CONFIG_FILE}:/etc/prometheus.yaml
     extra_hosts:
+      - "host.docker.internal:${TESTER_IP}"
       - "customers-service-baseline:${CUSTOMERS_BASELINE}"
       - "vets-service-baseline:${VETS_BASELINE}"
-      - "customers-service-agent:${CUSTOMERS_AGENT}"
       - "api-gateway-agent:${GATEWAY_AGENT}"
+      - "customers-service-agent:${CUSTOMERS_AGENT}"
       - "visits-service-agent:${VISITS_AGENT}"
-      - "vets-service-agent:${PETS_AGENT}"
-      - "host.docker.internal:${TESTER_IP}"
+      - "vets-service-agent:${VETS_AGENT}"
+      - "customers-service:${CUSTOMERS_IP}"
+      - "vets-service:${VETS_IP}"
+      - "api-gateway:${GATEWAY_IP}"
+
     ports:
       - "9090:9090"
 
