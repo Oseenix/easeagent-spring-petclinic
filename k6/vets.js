@@ -21,10 +21,10 @@ export default function () {
   const BASE_URL = 'http://172.20.2.138:8080'; // make sure this is not production
 
   const responses = http.batch([
-    ['GET', `${BASE_URL}/api/gateway/owners/1`, null, { tags: { name: 'owner' } }],
-    ['GET', `${BASE_URL}/api/gateway/owners/2`, null, { tags: { name: 'owner' } }],
-    ['GET', `${BASE_URL}/api/gateway/owners/3`, null, { tags: { name: 'owner' } }],
-    ['GET', `${BASE_URL}/api/gateway/owners/4`, null, { tags: { name: 'owner' } }],
+    ['GET', `${BASE_URL}/api/vet/vets`, null, { tags: { name: 'vets' } }],
+    ['GET', `${BASE_URL}/api/vet/vets`, null, { tags: { name: 'vets' } }],
+    ['GET', `${BASE_URL}/api/vet/vets`, null, { tags: { name: 'vets' } }],
+    ['GET', `${BASE_URL}/api/vet/vets`, null, { tags: { name: 'vets' } }],
   ]);
 
   sleep(1);

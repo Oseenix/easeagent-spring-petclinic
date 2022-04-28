@@ -18,6 +18,7 @@ services:
     command: [ "--config.file=/etc/prometheus.yaml" ]
     volumes:
       - ${SCRIPTPATH}/prometheus/${PROMETHEUS_CONFIG_FILE}:/etc/prometheus.yaml
+      - ${SCRIPTPATH}/prometheus/data:/prometheus
     extra_hosts:
       - "host.docker.internal:${TESTER_IP}"
       - "customers-service-baseline:${CUSTOMERS_BASELINE}"

@@ -163,6 +163,64 @@ Easeagent has an excessive impact on latency and throughput and is positively co
 ![resp-per-second](images/20t-1200s-resp-per-second.png)
 
 
+##
+
+### Baseline
+```
+running (13m20.7s), 000/700 VUs, 346255 complete and 0 interrupted iterations
+default ✓ [======================================] 000/700 VUs  13m20s
+
+     data_received..................: 428 MB  534 kB/s
+     data_sent......................: 143 MB  178 kB/s
+     http_req_blocked...............: avg=4.71µs   min=724ns  med=1.92µs   max=172.05ms p(90)=3.26µs   p(95)=4.81µs
+     http_req_connecting............: avg=1.19µs   min=0s     med=0s       max=69ms     p(90)=0s       p(95)=0s
+
+     http_req_duration..............: avg=338.93ms min=1.26ms med=267.04ms max=5.81s    p(90)=659.21ms p(95)=842.37ms
+       { expected_response:true }...: avg=337.99ms min=1.26ms med=266.43ms max=5.81s    p(90)=656.99ms p(95)=837.05ms
+     http_req_failed................: 0.16%   ✓ 2270       ✗ 1382750
+     http_req_receiving.............: avg=70.25µs  min=7.78µs med=23.51µs  max=218.49ms p(90)=43.44µs  p(95)=54.62µs
+     http_req_sending...............: avg=114.11µs min=3.9µs  med=8.52µs   max=288.73ms p(90)=20.19µs  p(95)=43.3µs
+     http_req_tls_handshaking.......: avg=0s       min=0s     med=0s       max=0s       p(90)=0s       p(95)=0s
+     http_req_waiting...............: avg=338.75ms min=1.2ms  med=266.83ms max=5.81s    p(90)=658.99ms p(95)=842.12ms
+
+     http_reqs......................: 1385020 1729.76753/s
+
+     iteration_duration.............: avg=1.43s    min=1s     med=1.37s    max=6.81s    p(90)=1.78s    p(95)=2.03s
+     iterations.....................: 346255  432.441882/s
+     vus............................: 6       min=5        max=700
+     vus_max........................: 700     min=700      max=700
+
+
+```
+
+### Agent
+```
+running (13m20.9s), 000/700 VUs, 309980 complete and 0 interrupted iterations
+default ↓ [======================================] 007/700 VUs  13m20s
+
+    data_received..................: 383 MB  478 kB/s
+    data_sent......................: 128 MB  160 kB/s
+    http_req_blocked...............: avg=5.68µs   min=696ns  med=1.93µs   max=137.7ms  p(90)=3.32µs   p(95)=4.56µs
+    http_req_connecting............: avg=1.98µs   min=0s     med=0s       max=110.38ms p(90)=0s       p(95)=0s
+    
+    http_req_duration..............: avg=461.38ms min=1.56ms med=396.7ms  max=5.45s    p(90)=874.69ms p(95)=1.15s
+    
+      { expected_response:true }...: avg=460.04ms min=1.56ms med=395.74ms max=5.45s    p(90)=870.77ms p(95)=1.14s
+    http_req_failed................: 0.23%   ✓ 2893        ✗ 1237027
+    http_req_receiving.............: avg=1.23ms   min=8.46µs med=21.1µs   max=545.92ms p(90)=45.43µs  p(95)=139.66µs
+    http_req_sending...............: avg=179.64µs min=3.76µs med=8.5µs    max=590.91ms p(90)=18.8µs   p(95)=35.92µs
+    http_req_tls_handshaking.......: avg=0s       min=0s     med=0s       max=0s       p(90)=0s       p(95)=0s
+    http_req_waiting...............: avg=459.97ms min=1.54ms med=395.22ms max=5.45s    p(90)=871.79ms p(95)=1.14s
+    
+    http_reqs......................: 1239920 1548.224693/s
+    
+    iteration_duration.............: avg=1.6s     min=1s     med=1.55s    max=6.45s    p(90)=2.05s    p(95)=2.45s
+    iterations.....................: 309980  387.056173/s
+    vus............................: 7       min=5         max=700
+    vus_max........................: 700     min=700       max=700
+```
+
+
 ## Conclusion
 The bottleneck of Easeagent is mainly in latency and throughput, which requires optimization of the asynchronous processing module, such as introducing a lock-free mechanism.
 
