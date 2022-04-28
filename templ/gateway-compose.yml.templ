@@ -49,6 +49,7 @@ services:
       - "9910:9910"
       - "9911:9911"
     extra_hosts:
+      - "tempo:${TEMPO_IP}"
       - "customers-service:${CUSTOMERS_IP}"
       - "vets-service:${VETS_IP}"
       - "visits-service:${VISITS_IP}"
