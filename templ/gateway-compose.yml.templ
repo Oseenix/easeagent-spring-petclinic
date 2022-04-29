@@ -5,7 +5,7 @@ services:
     image: springcommunity/spring-petclinic-config-server
     container_name: config-server
     volumes:
-    - ${SCRIPTPATH}/spring-petclinic-microservices-config:/git-repo
+      - ${SCRIPTPATH}/spring-petclinic-microservices-config:/git-repo
     environment:
       - GIT_REPO=/git-repo
       - SPRING_PROFILES_ACTIVE=native
@@ -27,7 +27,6 @@ services:
   api-gateway:
     image: springcommunity/spring-petclinic-api-gateway
     container_name: api-gateway
-    user: ${DOCKER_USER}
     security_opt:
       - seccomp:unconfined
     cap_add:
