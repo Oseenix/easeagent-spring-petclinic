@@ -28,6 +28,10 @@ services:
     image: springcommunity/spring-petclinic-api-gateway
     container_name: api-gateway
     user: ${DOCKER_USER}
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_ADMIN
     volumes:
       - ${SCRIPTPATH}/easeagent:/easeagent-volume
     entrypoint: 
