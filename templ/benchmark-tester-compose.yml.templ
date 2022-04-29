@@ -16,6 +16,7 @@ services:
     image: prom/prometheus:latest
     container_name: prometheus
     command: [ "--config.file=/etc/prometheus.yaml" ]
+    user: ${DOCKER_USER}
     volumes:
       - ${SCRIPTPATH}/prometheus/${PROMETHEUS_CONFIG_FILE}:/etc/prometheus.yaml
       - ${SCRIPTPATH}/prometheus/data:/prometheus

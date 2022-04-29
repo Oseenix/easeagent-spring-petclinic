@@ -27,8 +27,9 @@ services:
   api-gateway:
     image: springcommunity/spring-petclinic-api-gateway
     container_name: api-gateway
+    user: ${DOCKER_USER}
     volumes:
-     - ${SCRIPTPATH}/easeagent:/easeagent-volume
+      - ${SCRIPTPATH}/easeagent:/easeagent-volume
     entrypoint: 
       - "./dockerize"
       - "-wait=tcp://discovery-server:8761"

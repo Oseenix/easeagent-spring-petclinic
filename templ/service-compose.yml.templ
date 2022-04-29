@@ -5,6 +5,7 @@ services:
     image: springcommunity/spring-petclinic-customers-service
     container_name: customers-service
     hostname: customers-service
+    user: ${DOCKER_USER}
     volumes:
      - ${SCRIPTPATH}/easeagent:/easeagent-volume
     entrypoint: 
@@ -34,6 +35,7 @@ services:
     image: springcommunity/spring-petclinic-vets-service
     container_name: vets-service
     hostname: vets-service
+    user: ${DOCKER_USER}
     volumes:
      - ${SCRIPTPATH}/easeagent:/easeagent-volume
     entrypoint: 
@@ -64,6 +66,7 @@ services:
     image: springcommunity/spring-petclinic-visits-service
     container_name: visits-service
     hostname: visits-service
+    user: ${DOCKER_USER}
     volumes:
       - ${SCRIPTPATH}/easeagent:/easeagent-volume
     entrypoint: 

@@ -46,3 +46,6 @@ export VISITS_IP=${SERVICE_IP}
 export VETS_IP=${SERVICE_IP}
 export CUSTOMERS_IP=${SERVICE_IP}
 
+
+export DOCKER_USER="$(id -u):$(id -g)"
+
